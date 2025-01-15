@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Bootstrap Web Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .action-output {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Part -->
+<div class="container-fluid mb-4">
+    <div class="row bg-primary text-white p-4">
+        <div class="col-12 text-center">
+            <h1>Top Section</h1>
+            <p>Welcome to the top section of the page. Use the input fields and buttons below.</p>
+
+            <!-- Input Group -->
+            <div class="input-group mb-3">
+                <input id="userInput" type="text" class="form-control" placeholder="Enter text" aria-label="User Input">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button" onclick="submitUserInput()">Submit</button>
+                </div>
+            </div>
+            <div id="userInputOutput" class="action-output text-white"></div>
+
+            <!-- Badge and Button Group -->
+            <div>
+                <span class="badge badge-success mr-2">Success</span>
+                <span class="badge badge-warning mr-2">Warning</span>
+                <span class="badge badge-danger mr-2">Error</span>
+            </div>
+            <div class="btn-group mt-3" role="group">
+                <button type="button" class="btn btn-primary" onclick="buttonAction('Option 1')">Option 1</button>
+                <button type="button" class="btn btn-secondary" onclick="buttonAction('Option 2')">Option 2</button>
+                <button type="button" class="btn btn-success" onclick="buttonAction('Option 3')">Option 3</button>
+            </div>
+            <div id="buttonGroupOutput" class="action-output text-white"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Bottom Part -->
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Section 1 -->
+        <div class="col-md-4 p-4 bg-light text-center">
+            <h4>Section 1</h4>
+            <div class="input-group mb-3">
+                <input id="emailInput" type="email" class="form-control" placeholder="Enter email" aria-label="Email">
+                <div class="input-group-append">
+                    <button class="btn btn-info" type="button" onclick="subscribeEmail()">Subscribe</button>
+                </div>
+            </div>
+            <div id="emailOutput" class="action-output"></div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="col-md-4 p-4 bg-light text-center">
+            <h4>Section 2</h4>
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-success" onclick="actionButton('Action 1')">Action 1</button>
+                <button type="button" class="btn btn-warning" onclick="actionButton('Action 2')">Action 2</button>
+                <button type="button" class="btn btn-danger" onclick="actionButton('Action 3')">Action 3</button>
+            </div>
+            <div id="verticalButtonOutput" class="action-output"></div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="col-md-4 p-4 bg-light text-center">
+            <h4>Section 3</h4>
+            <div class="input-group mb-3">
+                <input id="numberInput" type="number" class="form-control" placeholder="Enter a number" aria-label="Number Input">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" onclick="submitNumber()">Submit</button>
+                </div>
+            </div>
+            <div id="numberOutput" class="action-output"></div>
+            <div>
+                <span class="badge badge-info">Info Badge</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js (for responsive behavior) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Function to handle the user input submit action
+    function submitUserInput() {
+        var userInput = document.getElementById("userInput").value;
+        document.getElementById("userInputOutput").textContent = "You entered: " + userInput;
+    }
+
+    // Function to handle button group actions
+    function buttonAction(option) {
+        document.getElementById("buttonGroupOutput").textContent = "You selected: " + option;
+    }
+
+    // Function to handle email subscription
+    function subscribeEmail() {
+        var email = document.getElementById("emailInput").value;
+        document.getElementById("emailOutput").textContent = "Subscribed with email: " + email;
+    }
+
+    // Function to handle vertical button group actions
+    function actionButton(action) {
+        document.getElementById("verticalButtonOutput").textContent = "You clicked: " + action;
+    }
+
+    // Function to handle number input submit action
+    function submitNumber() {
+        var number = document.getElementById("numberInput").value;
+        document.getElementById("numberOutput").textContent = "You entered the number: " + number;
+    }
+</script>
+
+</body>
+</html>

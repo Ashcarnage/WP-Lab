@@ -1,0 +1,131 @@
+/* General body style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light Blue */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for form */
+.form-container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff; /* White background */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form title */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #003366; /* Dark Blue */
+    margin-bottom: 20px;
+}
+
+/* Form group (label + input) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label styles */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #004d99; /* Dark Blue */
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Text inputs, textareas, and select dropdown */
+input[type="text"], input[type="date"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #66ccff; /* Light Blue Border */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Input focus effect */
+input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
+    border-color: #003366; /* Dark Blue on focus */
+    outline: none;
+}
+
+/* Radio button and Checkbox styles */
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Radio and Checkbox label style */
+input[type="radio"] + label, input[type="checkbox"] + label {
+    font-size: 16px;
+    color: #333333;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9; /* Light Gray */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e0e0e0; /* Light Gray Border */
+    font-size: 16px;
+}
+
+table th {
+    background-color: #004d99; /* Dark Blue Background */
+    color: white;
+}
+
+table td input[type="text"] {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #66ccff;
+    border-radius: 6px;
+}
+
+/* Submit Button Styles */
+button {
+    background-color: #28a745; /* Green */
+    color: white;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #218838; /* Darker Green */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .form-container {
+        width: 80%;
+        padding: 20px;
+    }
+
+    table th, table td {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <style>
+        .carousel-item {
+            padding: 20px;
+        }
+        .table th {
+            text-align: center;
+        }
+        .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2 class="text-center">Class Timetable</h2>
+
+    <!-- Bootstrap Carousel -->
+    <div id="timetableCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner">
+            <!-- Sunday -->
+            <div class="carousel-item active" id="sunday">
+                <h3 class="text-center">Sunday</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00 AM - 10:00 AM</td>
+                            <td>Math 101</td>
+                        </tr>
+                        <tr>
+                            <td>10:30 AM - 11:30 AM</td>
+                            <td>Physics 101</td>
+                        </tr>
+                        <tr>
+                            <td>1:00 PM - 2:00 PM</td>
+                            <td>Chemistry 101</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Monday -->
+            <div class="carousel-item" id="monday">
+                <h3 class="text-center">Monday</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00 AM - 10:00 AM</td>
+                            <td>Biology 101</td>
+                        </tr>
+                        <tr>
+                            <td>11:00 AM - 12:00 PM</td>
+                            <td>Computer Science 101</td>
+                        </tr>
+                        <tr>
+                            <td>2:00 PM - 3:00 PM</td>
+                            <td>Philosophy 101</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tuesday -->
+            <div class="carousel-item" id="tuesday">
+                <h3 class="text-center">Tuesday</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8:30 AM - 9:30 AM</td>
+                            <td>English 101</td>
+                        </tr>
+                        <tr>
+                            <td>10:00 AM - 11:00 AM</td>
+                            <td>Math 102</td>
+                        </tr>
+                        <tr>
+                            <td>1:00 PM - 2:00 PM</td>
+                            <td>Chemistry 102</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Wednesday -->
+            <div class="carousel-item" id="wednesday">
+                <h3 class="text-center">Wednesday</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00 AM - 10:00 AM</td>
+                            <td>Computer Science 102</td>
+                        </tr>
+                        <tr>
+                            <td>10:30 AM - 11:30 AM</td>
+                            <td>Physics 102</td>
+                        </tr>
+                        <tr>
+                            <td>2:00 PM - 3:00 PM</td>
+                            <td>Mathematics 103</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Thursday -->
+            <div class="carousel-item" id="thursday">
+                <h3 class="text-center">Thursday</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8:30 AM - 9:30 AM</td>
+                            <td>History 101</td>
+                        </tr>
+                        <tr>
+                            <td>10:00 AM - 11:00 AM</td>
+                            <td>Biology 102</td>
+                        </tr>
+                        <tr>
+                            <td>1:00 PM - 2:00 PM</td>
+                            <td>Philosophy 102</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Friday -->
+            <div class="carousel-item" id="friday">
+                <h3 class="text-center">Friday</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00 AM - 10:00 AM</td>
+                            <td>Math 104</td>
+                        </tr>
+                        <tr>
+                            <td>10:30 AM - 11:30 AM</td>
+                            <td>Physics 103</td>
+                        </tr>
+                        <tr>
+                            <td>1:00 PM - 2:00 PM</td>
+                            <td>Computer Science 103</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Saturday -->
+            <div class="carousel-item" id="saturday">
+                <h3 class="text-center">Saturday</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Class</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00 AM - 10:00 AM</td>
+                            <td>English 102</td>
+                        </tr>
+                        <tr>
+                            <td>11:00 AM - 12:00 PM</td>
+                            <td>History 102</td>
+                        </tr>
+                        <tr>
+                            <td>2:00 PM - 3:00 PM</td>
+                            <td>Mathematics 105</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Custom Controls (Next/Previous) -->
+        <button class="btn btn-primary" id="prevButton">Previous</button>
+        <button class="btn btn-primary" id="nextButton">Next</button>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Disable auto-scroll of carousel
+    $('#timetableCarousel').carousel({
+        interval: false,  // Disables the auto-rotation
+        ride: false        // Prevents the automatic cycling
+    });
+
+    // Previous and Next button logic
+    let currentIndex = 0;
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+    $('#nextButton').click(function() {
+        currentIndex = (currentIndex + 1) % days.length;
+        $('#timetableCarousel').carousel(currentIndex);
+    });
+
+    $('#prevButton').click(function() {
+        currentIndex = (currentIndex - 1 + days.length) % days.length;
+        $('#timetableCarousel').carousel(currentIndex);
+    });
+</script>
+
+</body>
+</html>

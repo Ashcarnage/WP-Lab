@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Bio-Data Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Student Bio-Data Form</h1>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <select id="course" name="course">
+                    <option value="computer-science">Computer Science</option>
+                    <option value="information-technology">Information Technology</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="mechanical">Mechanical Engineering</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="subjects">Subjects Interested In:</label><br>
+                <input type="checkbox" id="maths" name="subjects" value="maths">
+                <label for="maths">Mathematics</label><br>
+                <input type="checkbox" id="physics" name="subjects" value="physics">
+                <label for="physics">Physics</label><br>
+                <input type="checkbox" id="chemistry" name="subjects" value="chemistry">
+                <label for="chemistry">Chemistry</label><br>
+                <input type="checkbox" id="biology" name="subjects" value="biology">
+                <label for="biology">Biology</label>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <th>High School</th>
+                        <th>Graduation Year</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="highschool" required></td>
+                        <td><input type="text" name="gradyear" required></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

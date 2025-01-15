@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Bio-Data Form</title>
+</head>
+<body>
+    <h1>Student Bio-Data Form</h1>
+    <form id="bioDataForm">
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="gender">Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="Male" required> Male<br>
+        <input type="radio" id="female" name="gender" value="Female"> Female<br><br>
+
+        <label for="course">Course:</label><br>
+        <select id="course" name="course" required>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+        </select><br><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            const formData = {
+                name: document.getElementById("name").value,
+                dob: document.getElementById("dob").value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                course: document.getElementById("course").value
+            };
+
+            fetch('/processForm', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Redirect to chatbot page with session ID
+                window.location.href = `/chatbot?session=${data.sessionId}`;
+            });
+        }
+    </script>
+</body>
+</html>
