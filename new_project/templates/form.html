@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Input Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            width: 50%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        table th, table td {
+            text-align: left;
+            padding: 10px;
+        }
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Chatbot Input Form</h2>
+        <form action="/process" method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label>
+
+            <label>Interests:</label>
+            <input type="checkbox" id="coding" name="interest" value="Coding"><label for="coding">Coding</label>
+            <input type="checkbox" id="music" name="interest" value="Music"><label for="music">Music</label>
+
+            <label>Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
