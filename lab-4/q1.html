@@ -1,0 +1,121 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table and Image Animation</title>
+  <link rel="stylesheet" href="/home/student/Desktop/22062089/lab-4/styles.css"> <!-- Link to external CSS -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#animateButton").click(function() {
+        // Animate the table and image together from right to left and back
+        $(".container").animate({
+          left: "-=300px" // Move 300px to the left
+        }, 1000, function() {
+          // After the move to the left is complete, animate it back to the original position
+          $(".container").animate({
+            left: "+=300px" // Move back to the original position
+          }, 1000);
+        });
+      });
+    });
+  </script>
+</head>
+<body> -->
+
+  <!-- <div class="container" style="position: relative; left: 0;">
+    <table>
+      <tr class="odd-row">
+        <td>Row 1, Col 1</td>
+        <td>Row 1, Col 2</td>
+        <td>Row 1, Col 3</td>
+      </tr>
+      <tr>
+        <td>Row 2, Col 1</td>
+        <td>Row 2, Col 2</td>
+        <td>Row 2, Col 3</td>
+      </tr>
+      <tr class="odd-row">
+        <td>Row 3, Col 1</td>
+        <td>Row 3, Col 2</td>
+        <td>Row 3, Col 3</td>
+      </tr>
+    </table>
+     -->
+    <!-- <img src="images/spider.jpeg" alt="Sample Image">
+
+    <button id="animateButton" class="animate-button">Move Table and Image</button>
+  </div>
+
+</body>
+</html>
+ --> 
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Swap Table and Image</title>
+   <link rel="stylesheet" href="/home/student/Desktop/22062089/lab-4/styles.css"> <!-- Link to external CSS -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script>
+     $(document).ready(function() {
+       $("#animateButton").click(function() {
+         // Step 1: Swap positions of the table and image
+         let tableLeft = $("table").position().left;
+         let imageLeft = $("img").position().left;
+         
+         $("table").animate({
+           left: imageLeft
+         }, 1000);
+ 
+         $("img").animate({
+           left: tableLeft
+         }, 1000);
+ 
+         // After a brief delay, swap them back to their original positions
+         setTimeout(function() {
+           $("table").animate({
+             left: tableLeft
+           }, 1000);
+ 
+           $("img").animate({
+             left: imageLeft
+           }, 1000);
+         }, 1500); // 1.5 seconds delay before swapping back
+       });
+     });
+   </script>
+ </head>
+ <body>
+ 
+   <div class="container" style="position: relative; left: 0;">
+     <table>
+       <tr class="odd-row">
+         <td>Row 1, Col 1</td>
+         <td>Row 1, Col 2</td>
+         <td>Row 1, Col 3</td>
+       </tr>
+       <tr>
+         <td>Row 2, Col 1</td>
+         <td>Row 2, Col 2</td>
+         <td>Row 2, Col 3</td>
+       </tr>
+       <tr class="odd-row">
+         <td>Row 3, Col 1</td>
+         <td>Row 3, Col 2</td>
+         <td>Row 3, Col 3</td>
+       </tr>
+     </table>
+     
+     <!-- Your custom image -->
+     <img src="images/spider.jpeg" alt="Sample Image" style="position: relative;">
+ 
+     <button id="animateButton" class="animate-button">Swap Table and Image</button>
+   </div>
+ 
+ </body>
+ </html>
+ 

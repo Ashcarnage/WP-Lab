@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles2.css"> <!-- Link to the provided CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery CDN -->
+</head>
+<body>
+    <div class="calculator">
+        <!-- Display Screen -->
+        <input type="text" id="display" class="display" readonly value="0">
+
+        <!-- Buttons Grid -->
+        <div class="buttons">
+            <!-- Number Buttons -->
+            <button class="btn number" value="7">7</button>
+            <button class="btn number" value="8">8</button>
+            <button class="btn number" value="9">9</button>
+            <button class="btn operator" value="+">+</button>
+
+            <button class="btn number" value="4">4</button>
+            <button class="btn number" value="5">5</button>
+            <button class="btn number" value="6">6</button>
+            <button class="btn operator" value="-">-</button>
+
+            <button class="btn number" value="1">1</button>
+            <button class="btn number" value="2">2</button>
+            <button class="btn number" value="3">3</button>
+            <button class="btn operator" value="x">x</button>
+
+            <button class="btn number" value="0">0</button>
+            <button class="btn number" value=".">.</button>
+            <button class="btn operator" value="/">÷</button>
+            <button id="equals" class="btn equals">=</button>
+
+            <!-- Clear Button -->
+            <button id="clear" class="btn clear">C</button>
+        </div>
+    </div>
+
+    <!-- jQuery Script for Calculator Functionality -->
+    <script>
+        $(function() {
+            let expression = '';
+            const $display = $('#display');
+            
+            // Button click handler
+            $('button').on('click', function() {
+                const value = $(this).val();
+                
+                switch(true) {
+                    case $(this).hasClass('number'):
+                        expression = (expression === '0') ? value : expression + value;
+                        break;
+                        
+                    case $(this).hasClass('operator'):
+                        expression += ` ${value} `;
+                        break;
+                        
+                    case $(this).is('#clear'):
+                        expression = '0';
+                        break;
+                        
+                    case $(this).is('#equals'):
+                        try {
+                            const sanitized = expression
+                                .replace(/x/g, '*')
+                                .replace(/÷/g, '/')
+                                .replace(/\s+/g, '')
+                                .replace(/([+\-*/])\1+/g, '$1');
+                            
+                            if(/\/0(?!\.)/.test(sanitized)) throw new Error('Division by zero');
+                            
+                            expression = eval(sanitized).toString();
+                        } catch(e) {
+                            $display.addClass('error');
+                            expression = 'Error';
+                            setTimeout(() => {
+                                $display.removeClass('error');
+                                expression = '0';
+                                updateDisplay();
+                            }, 1000);
+                        }
+                        break;
+                }
+                
+                updateDisplay();
+            });
+
+            function updateDisplay() {
+                $display.val(expression.replace(/\s+/g, ''));
+            }
+        });
+    </script>
+</body>
+</html>

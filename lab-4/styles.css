@@ -1,0 +1,61 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container to hold the table and image */
+  .container {
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative; /* Allows us to animate the left position */
+  }
+  
+  /* Table styling */
+  table {
+    width: 60%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    position: relative; /* To allow position adjustments */
+  }
+  
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  /* Alternate row colors */
+  .odd-row {
+    background-color: #f2f2f2;
+  }
+  
+  /* Image styling */
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    position: relative; /* To allow position adjustments */
+  }
+  
+  /* Button styling */
+  .animate-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .animate-button:hover {
+    background-color: #45a049;
+  }
+  

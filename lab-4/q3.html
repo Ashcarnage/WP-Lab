@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card Designer</title>
+    <link rel="stylesheet" href="styles3.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Controls Section -->
+        <div class="controls">
+            <h2>Customize Your Card</h2>
+
+            <label for="bg-color">Choose a background color:</label>
+            <select id="bg-color">
+                <option value="yellow">Yellow</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="pink">Pink</option>
+            </select>
+
+            <label for="font-family">Choose a font:</label>
+            <select id="font-family">
+                <option value="Verdana">Verdana</option>
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+            </select>
+
+            <label for="font-size">Specify a numeric font size:</label>
+            <input type="number" id="font-size" value="25">
+
+            <label for="border-style">Choose a border style:</label>
+            <select id="border-style">
+                <option value="none">None</option>
+                <option value="double">Double</option>
+                <option value="solid">Solid</option>
+            </select>
+
+            <label for="add-image">
+                <input type="checkbox" id="add-image" checked> Add the Default Picture
+            </label>
+
+            <label for="greeting-text">Enter the greeting text below:</label>
+            <textarea id="greeting-text" rows="3">Happy Birthday, and many more</textarea>
+
+            <button id="update-card">Update</button>
+        </div>
+
+        <!-- Card Preview Section -->
+        <div class="card-preview" id="card-preview">
+            <!-- Default card preview -->
+            <div class="card-content">
+                <p class="greeting-text">Happy Birthday, and many more</p>
+                <!-- Default Image -->
+                <img src="images/bday.jpg" alt="Birthday Cake" class="card-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery Script -->
+    <script>
+        $(document).ready(function () {
+            $('#update-card').click(function () {
+                // Update background color
+                const bgColor = $('#bg-color').val();
+                $('#card-preview').css('background-color', bgColor);
+
+                // Update font family
+                const fontFamily = $('#font-family').val();
+                $('.greeting-text').css('font-family', fontFamily);
+
+                // Update font size
+                const fontSize = $('#font-size').val() + 'px';
+                $('.greeting-text').css('font-size', fontSize);
+
+                // Update border style
+                const borderStyle = $('#border-style').val();
+                $('#card-preview').css('border', borderStyle !== 'none' ? `3px ${borderStyle} black` : 'none');
+
+                // Update greeting text
+                const greetingText = $('#greeting-text').val();
+                $('.greeting-text').text(greetingText);
+
+                // Show or hide image based on checkbox state
+                if ($('#add-image').is(':checked')) {
+                    $('.card-image').show();
+                } else {
+                    $('.card-image').hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
