@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Arithmetic Calculator</title>
+</head>
+<body>
+    <h1>Simple Arithmetic Calculator</h1>
+
+    {% if error %}
+      <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      <label for="num1">First Number:</label>
+      <input type="number" id="num1" name="num1" required>
+      <br><br>
+
+      <label for="num2">Second Number:</label>
+      <input type="number" id="num2" name="num2" required>
+      <br><br>
+
+      <label for="operation">Select Operation:</label>
+      <select id="operation" name="operation">
+          <option value="add">Addition (+)</option>
+          <option value="subtract">Subtraction (-)</option>
+          <option value="multiply">Multiplication (×)</option>
+          <option value="divide">Division (÷)</option>
+      </select>
+      <br><br>
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    {% if result is not None %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
