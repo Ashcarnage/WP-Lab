@@ -1,0 +1,71 @@
+{% extends 'employees/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Add Employee Work Information</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'index' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ works_form.person_name.id_for_label }}">Person Name:</label>
+                            {{ works_form.person_name }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ works_form.company_name.id_for_label }}">Company Name:</label>
+                            {{ works_form.company_name }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ works_form.salary.id_for_label }}">Salary:</label>
+                            {{ works_form.salary }}
+                        </div>
+                        <button type="submit" name="add_works" class="btn btn-primary">Add Record</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Search Employees by Company</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'search_company' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ search_form.company_name.id_for_label }}">Company Name:</label>
+                            {{ search_form.company_name }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                    
+                    {% if results %}
+                        <div class="mt-4">
+                            <h4>Results for employees at: {{ search_form.company_name.value }}</h4>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Person Name</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for person, city in results %}
+                                        <tr>
+                                            <td>{{ person }}</td>
+                                            <td>{{ city|default:"Unknown" }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

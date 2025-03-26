@@ -1,0 +1,30 @@
+{% extends 'directory/base.html' %}
+{% block body_block %}
+    {% if category %}
+        <h1>{{ category.name }}</h1>
+        <p>Visits: {{ category.visits }}, Likes: {{ category.likes }}</p>
+        
+        {% if user.is_authenticated %}
+        <form action="{% url 'directory:like_category' category.slug %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Like Category</button>
+        </form>
+        {% endif %}
+        
+        {% if pages %}
+            <ul>
+                {% for page in pages %}
+                    <li>
+                        <a href="{% url 'directory:view_page' page.id %}">{{ page.title }}</a> - {{ page.views }} views
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No pages currently in category.</p>
+        {% endif %}
+        
+        <a href="{% url 'directory:add_page' category.slug %}">Add Page</a>
+    {% else %}
+        <p>The specified category does not exist.</p>
+    {% endif %}
+{% endblock %}

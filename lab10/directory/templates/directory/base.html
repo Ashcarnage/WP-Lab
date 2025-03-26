@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Directory</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="{% url 'directory:index' %}">Home</a></li>
+            <li><a href="{% url 'directory:add_category' %}">Add Category</a></li>
+        </ul>
+    </div>
+    <div>
+        {% block body_block %}
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'directory/base.html' %}
+{% block body_block %}
+    <h1>Website Directory</h1>
+    <h2>Categories</h2>
+    {% if categories %}
+        <ul>
+            {% for category in categories %}
+                <li>
+                    <a href="{% url 'directory:show_category' category.slug %}">
+                        {{ category.name }}
+                    </a> - Likes: {{ category.likes }}, Visits: {{ category.visits }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no categories present.</p>
+    {% endif %}
+    
+    <h2>Most Viewed Pages</h2>
+    {% if pages %}
+        <ul>
+            {% for page in pages %}
+                <li>
+                    <a href="{{ page.url }}">{{ page.title }}</a> - {{ page.views }} views
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no pages present.</p>
+    {% endif %}
+{% endblock %}

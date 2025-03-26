@@ -1,0 +1,20 @@
+{% extends 'directory/base.html' %}
+{% block body_block %}
+    <h1>{{ page.title }}</h1>
+    <p>Views: {{ page.views }}</p>
+    <p>Likes: {{ total_likes }}</p>
+    
+    {% if user.is_authenticated %}
+    <form action="{% url 'directory:like_page' page.id %}" method="POST">
+        {% csrf_token %}
+        {% if is_liked %}
+            <button type="submit" class="btn btn-danger">Unlike</button>
+        {% else %}
+            <button type="submit" class="btn btn-primary">Like</button>
+        {% endif %}
+    </form>
+    {% endif %}
+    
+    <p><a href="{{ page.url }}" target="_blank">Visit Page</a></p>
+    <p><a href="{% url 'directory:show_category' page.category.slug %}">Back to {{ page.category.name }}</a></p>
+{% endblock %}
