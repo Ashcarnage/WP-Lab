@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Registration Successful</h2>
+<p>Welcome {{ user_data.username }}</p>
+
+{% if user_data.email %}
+<p>Email: {{ user_data.email }}</p>
+{% endif %}
+
+{% if user_data.contact_number %}
+<p>Contact Number: {{ user_data.contact_number }}</p>
+{% endif %}
+
+<a href="{% url 'register' %}">Back to Registration</a>
+{% endblock %}

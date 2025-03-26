@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Rating</title>
+    <style>
+        /* Your existing styles */
+        .reset-button {
+            margin-top: 10px;
+            padding: 5px 15px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h2>How is the book ASP.NET with c# by Vipul Prakashan?</h2>
+    
+    {% if not voted %}
+    <div class="rating-form">
+        <form method="post" action="{% url 'submit_vote' %}">
+            {% csrf_token %}
+            <div class="rating-option">
+                <input type="radio" id="good" name="rating" value="good">
+                <label for="good">Good</label> [lbl:good]
+            </div>
+            <div class="rating-option">
+                <input type="radio" id="satisfactory" name="rating" value="satisfactory">
+                <label for="satisfactory">Satisfactory</label> [lbl:satisfactory]
+            </div>
+            <div class="rating-option">
+                <input type="radio" id="bad" name="rating" value="bad">
+                <label for="bad">Bad</label> [lbl:bad]
+            </div>
+            <button type="submit" class="vote-button" id="btnvote">Vote</button>
+        </form>
+    </div>
+    {% else %}
+    <div class="results">
+        <h3>How is the book ASP.NET with c# by Vipul Prakashan?</h3>
+        <div class="result-item">
+            <input type="radio" id="good_result" {% if percentages.good > 0 %}checked{% endif %} disabled>
+            <label for="good_result">Good</label> {{ percentages.good }}%
+        </div>
+        <div class="result-item">
+            <input type="radio" id="satisfactory_result" {% if percentages.satisfactory > 0 %}checked{% endif %} disabled>
+            <label for="satisfactory_result">Satisfactory</label> {{ percentages.satisfactory }}%
+        </div>
+        <div class="result-item">
+            <input type="radio" id="bad_result" {% if percentages.bad > 0 %}checked{% endif %} disabled>
+            <label for="bad_result">Bad</label> {{ percentages.bad }}%
+        </div>
+        <p>Total votes: {{ total_votes }}</p>
+        <a href="{% url 'reset_vote' %}"><button class="reset-button">Vote Again</button></a>
+    </div>
+    {% endif %}
+</body>
+</html>

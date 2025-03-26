@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Registration Form</h2>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <label for="id_username">Username*:</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+        <p style="color: red;">{{ form.username.errors }}</p>
+        {% endif %}
+    </div>
+    <div>
+        <label for="id_password">Password:</label>
+        {{ form.password }}
+    </div>
+    <div>
+        <label for="id_email">Email:</label>
+        {{ form.email }}
+    </div>
+    <div>
+        <label for="id_contact_number">Contact Number:</label>
+        {{ form.contact_number }}
+    </div>
+    <button type="submit">Register</button>
+</form>
+{% endblock %}
